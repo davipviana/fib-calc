@@ -20,3 +20,16 @@ after_success:
     - docker push davipviana/fib-calc-nginx
     - docker push davipviana/fib-calc-server
     - docker push davipviana/fib-calc-worker
+
+deploy:
+    edge: true
+    provider: elasticbeanstalk
+    region: sa-east-1
+    app: fib-calc
+    env: FibCalc-env
+    bucket_name: elasticbeanstalk-sa-east-1-479569937990
+    bucket_path: fib-calc
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
