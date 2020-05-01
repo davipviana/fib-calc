@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postres-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: postres
+  ports:
+    - port: 5432
+      targetPort: 5432
